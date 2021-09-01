@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+<div class="flash">
+  <div class="flash--status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div>
+
+  <!-- Order: Grammar, Swedish, English, Type, Examples, Swedish (full)-->
+  <!--           0        1       2       3       4          5         -->
+  <div class="flash--cards">
+    <h3 class="text-muted">Loading cards ...</h3>
+    <% words.forEach((word, index) => { %>
+    <div class="flash--card" id="<%= index %>">
+      <div class="content">
+        <div class="front">
+          <h4>Swedish</h4>
+          <h3><%= word[5] %></h3>
+          <h5><%= word[3] %></h5>
+          <p><%= word[4] %></p>
+        </div>
+        <div class="back">
+          <h4>English</h4>
+          <h3><%= word[2] %></h3>
+          <h5><%= word[3] %></h5>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+
+  <div class="flash--buttons">
+    <form action="/next" method="post" id="control-buttons">
+      <button id="nope"><i class="fa fa-remove"></i></button>
+      <button id="flip"><i class="fas fa-redo-alt"></i></button>
+      <button id="love"><i class="fa fa-heart"></i></button>
+      <input id="hidden-input-next" type="hidden" name="options" value=""></input>
+    </form>
+  </div>
+</div>
+<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+<script src="javascript/card-manager.js"></script>
+
+<%- include('partials/footer') %>
