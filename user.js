@@ -1,7 +1,9 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-mongoose.connect("mongodb://localhost:27017/userDB", {
+const databaseUrl = `mongodb+srv://admin-bao:${process.env.MONGO_ATLAS_PASSWORD}@cluster0.sogeo.mongodb.net/flashCardUserDB`;
+mongoose.connect(databaseUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
