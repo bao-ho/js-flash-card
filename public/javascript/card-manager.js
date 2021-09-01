@@ -44,7 +44,7 @@ allCards.forEach(function (el) {
     flashContainer.classList.remove("flash_love");
     flashContainer.classList.remove("flash_nope");
 
-    const moveOutWidth = document.body.clientWidth;
+    const moveOutWidth = document.body.clientWidth*1.5;
     const keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
 
     event.target.classList.toggle("removed", !keep);
