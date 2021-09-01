@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require('path');
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
@@ -6,7 +7,7 @@ const flash = require('connect-flash');
 const User = require("./user.js");
 
 const app = express();
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
