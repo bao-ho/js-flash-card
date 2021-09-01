@@ -29,6 +29,11 @@ passport.deserializeUser(User.deserializeUser());
 // Register routes
 app.use('/', require('./routes'));
 
-app.listen(process.env.PORT || 3001, function () {
-  console.log("Server hosted at http://localhost:3001");
-});
+const port = process.env.PORT;
+if (port === null || port === "") {
+  port = 3001;
+}
+ 
+app.listen(port, function() {
+  console.log("Server started succesfully");
+});   
