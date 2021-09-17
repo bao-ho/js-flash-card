@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS Bin</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script>
+      $(function () {
+        var sound = new Audio(
+          "https://freesound.org/data/previews/403/403012_5121236-lq.mp3"
+        );
+        $("#enableSound").click(function () {
+          sound.play();
+        });
+      });
+      // example of calling audio from js
+    </script>
+  </head>
+  <body>
+    <div id="enableSound">Enable Sound</div>
+  </body>
+</html>

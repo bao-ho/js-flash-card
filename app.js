@@ -32,9 +32,12 @@ app.use('/', require('./routes'));
 
 let port = process.env.PORT;
 if (port === null || port === "" || port === undefined) {
-  port = 3001;
+  app.listen(3001, '0.0.0.0', function() {
+    console.log(`Server started succesfully at: http://0.0.0.0:3001`);
+  });
+} else {
+  app.listen(port, function() {
+    console.log(`Server started succesfully with heroku.`);
+  });
 }
  
-app.listen(port, function() {
-  console.log(`Server started succesfully at: http://localhost:${port}`);
-});   

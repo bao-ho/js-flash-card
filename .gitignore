@@ -1,3 +1,5 @@
 node_modules
 .env
 .vscode/
+*.mp3
+.DS_Store

@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5">
-  <h1>Login</h1>
+<div class="container mt-3">
+  <h3>Login</h3>
 
   <div class="row">
     <div class="col-sm-8">
@@ -17,11 +17,11 @@
               <label for="password">Password</label>
               <input type="password" class="form-control" name="password" />
             </div>
+            <div>
+              <p class="text-warning"><%= message %></p>
+            </div>
             <button type="submit" class="btn btn-dark">Login</button>
           </form>
-          <div>
-            <label class="text-warning mt-3"> <%= message %> </label>
-          </div>
         </div>
       </div>
     </div>

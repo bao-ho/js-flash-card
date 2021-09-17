@@ -12,7 +12,7 @@ mongoose.set("useCreateIndex", true);
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
-  progress: Number,
+  progress: Object,
 });
 
 userSchema.plugin(passportLocalMongoose);
