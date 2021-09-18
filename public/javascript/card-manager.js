@@ -27,6 +27,12 @@ $(() => {
   }
 });
 
+$(function () {
+  setTimeout(function () {
+    $("#auto-hide").fadeOut(1500);
+  }, 3000);
+});
+
 function playSound(card) {
   const content = card.children[0];
   // Play the word, only if sound is not muted
@@ -52,19 +58,10 @@ function initCards() {
       card.style.transform = `scale(${1 - index / 51}) translateY(${
         -10 * index
       }px)`;
-      // card.style.opacity = 1 - index / 10;
     });
     flashContainer.classList.add("loaded");
 
     playSound(newCards[0]);
-
-    // // Play the first word, only when sound is not muted
-    // if (!document.getElementById("sound").classList.contains("muted")) {
-    //   const fileName =
-    //     newCards[0].children[0].children[0].children[1].innerHTML + ".mp3";
-    //   audio.src = `sounds/sv/${fileName}`;
-    //   audio.play();
-    // }
   }
 }
 
@@ -89,13 +86,16 @@ function animateCardsAndSubmitResult(card, transform, result) {
   card.classList.add("removed");
   card.style.zIndex = 0;
   initCards();
-  const form = document.getElementById("control-buttons");
-  const $ajaxForm = $("#control-buttons");
-  if (cards.length === 1) {
-    form.submit();
-  } else {
-    $ajaxForm.submit();
-  }
+  // Wait for the CSS animation before submit
+  setTimeout(() => {
+    const form = document.getElementById("control-buttons");
+    const $ajaxForm = $("#control-buttons");
+    if (cards.length === 1) {
+      form.submit();
+    } else {
+      $ajaxForm.submit();
+    }
+  }, 500);
 }
 
 allCards.forEach(function (el) {
@@ -185,10 +185,6 @@ function createButtonListener(buttonName) {
         const sound = document.getElementById("sound");
         sound.classList.toggle("muted");
         playSound(card);
-        // if (!sound.classList.contains("muted")) {
-        //   // onClick of first interaction on page before I need the sounds
-        //   audio.play();
-        // }
         break;
       default:
         break;

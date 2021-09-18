@@ -17,27 +17,16 @@ router.get("/card", function (req, res) {
     else {
       const words = dictionary.getWords(user.progress);
       dictionary.saveSounds(words);
-      setTimeout(() => {
-        res.render("card", { words });
-      }, 500);
+      const wordsLearned = Object.keys(user.progress)
+        .map((key) => user.progress[key])
+        .filter((reps) => reps > 0).length;
+      res.render("card", { words, wordsLearned });
     }
   });
 });
 
 router.get("/login", function (req, res) {
   res.render("login", { message: req.flash("error") });
-});
-
-router.get("/test", function (req, res) {
-  res.render("testSound");
-});
-
-router.get("/secrets", function (req, res) {
-  if (req.isAuthenticated()) {
-    res.render("secrets");
-  } else {
-    res.redirect("/login");
-  }
 });
 
 router.get("/logout", function (req, res) {

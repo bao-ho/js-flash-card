@@ -2,7 +2,7 @@ const fs = require("fs");
 const fsExt = require("fs-extra");
 const csv = require("@fast-csv/parse");
 const gTTS = require("gtts");
-const N_CARDS = 5;
+const N_CARDS = 10;
 const MAX_REPS = 4;
 const WEIGHT_FACTOR = [1, 2, 3, 5, 8];
 
