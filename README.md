@@ -11,6 +11,12 @@ A minimal website where users can study Swedish vocabulary using flashcards with
 - MongoDB + Mongoose for database
 - PassportJS for authentication
 - Hosted on Heroku
-### Deployment:
+### Deployment
 - At https://svenskakort.herokuapp.com/
 - For testing purpose, if you don't want to create an account, login with testing@svenskakort.se (pass: 1234).
+### Demo
+
+
+
+https://user-images.githubusercontent.com/70384379/150634706-7ea8b3a9-68ac-41ef-9dc2-062ac5cffd93.mov
+
