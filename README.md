@@ -10,6 +10,8 @@ A minimal website where users can study Swedish vocabulary using flashcards with
 - NodeJS + ExpressJS as web framework
 - MongoDB + Mongoose for database
 - PassportJS for authentication
+- Word list extracted from Project Kelly
+- gttsJS for text-to-speech
 - Hosted on Heroku
 ### Deployment
 - At https://svenskakort.herokuapp.com/
